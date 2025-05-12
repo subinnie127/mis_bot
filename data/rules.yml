@@ -1,13 +1,22 @@
 version: "3.1"
 
 rules:
+  - rule: Responder saludo
+    steps:
+      - intent: saludo
+      - action: utter_saludo
 
-- rule: Responder a la pregunta sobre funcionalidades
-  steps:
-    - intent: pregunta_funcionalidad
-    - action: utter_funcionalidad
+  - rule: Responder funcionalidad
+    steps:
+      - intent: funcionalidad
+      - action: utter_funcionalidad
 
-- rule: Responder con información sobre NCT
-  steps:
-  - intent: informacion_nct
-  - action: utter_informacion_nct
+  - rule: Responder pregunta sobre NCT
+    steps:
+      - intent: pregunta_nct
+      - action: utter_pregunta_nct
+
+  - rule: Responder despedida
+    steps:
+      - intent: adios
+      - action: utter_adios

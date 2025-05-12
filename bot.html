@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Neo Bot</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+            background-color: #f9f9f9;
+        }
+
+        #chat {
+            width: 100%;
+            max-width: 600px;
+            margin: auto;
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .message {
+            margin: 10px 0;
+        }
+
+        .user {
+            text-align: right;
+            color: blue;
+        }
+
+        .bot {
+            text-align: left;
+            color: green;
+        }
+
+        input, button {
+            padding: 10px;
+            margin-top: 10px;
+            width: calc(100% - 22px);
+            font-size: 16px;
+        }
+
+        button {
+            width: 100%;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div id="chat">
+        <h2>Bot</h2>
+        <div id="messages"></div>
+        <input type="text" id="message" placeholder="Escribe tu mensaje..." />
+        <button onclick="sendMessage()">Enviar</button>
+    </div>
+
+    <script>
+        async function sendMessage() {
+            const input = document.getElementById("message");
+            const msg = input.value.trim();
+            if (!msg) return;
+
+            const chatBox = document.getElementById("messages");
+
+            // Mostrar mensaje del usuario
+            const userMessage = document.createElement("div");
+            userMessage.className = "message user";
+            userMessage.innerText = "Tú: " + msg;
+            chatBox.appendChild(userMessage);
+
+            // Limpiar input
+            input.value = "";
+
+            try {
+                const response = await fetch("http://localhost:5005/webhooks/rest/webhook", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({ message: msg })
+                });
+
+                const data = await response.json();
+                data.forEach(entry => {
+                    const botMessage = document.createElement("div");
+                    botMessage.className = "message bot";
+                    botMessage.innerText = "Bot: " + entry.text;
+                    chatBox.appendChild(botMessage);
+                });
+            } catch (error) {
+                const errorMessage = document.createElement("div");
+                errorMessage.className = "message bot";
+                errorMessage.innerText = "Error al comunicarse con el bot.";
+                chatBox.appendChild(errorMessage);
+            }
+
+            chatBox.scrollTop = chatBox.scrollHeight;
+        }
+    </script>
+</body>
+</html>

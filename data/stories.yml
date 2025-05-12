@@ -1,16 +1,13 @@
 version: "3.1"
 
 stories:
-- story: explicar funcionalidad del bot
+- story: flujo simple
   steps:
-  - user: |
-      ¿Para qué sirves?
-    intent: funcionalidad
-  - action: utter_funcionalidad
-
-- story: hablar de NCT
-  steps:
-  - user: |
-      Cuéntame sobre NCT
-    intent: informacion_nct
-  - action: utter_informacion_nct
+    - intent: saludo
+    - action: utter_saludo
+    - intent: funcionalidad
+    - action: utter_funcionalidad
+    - intent: pregunta_nct
+    - action: utter_pregunta_nct
+    - intent: adios
+    - action: utter_adios

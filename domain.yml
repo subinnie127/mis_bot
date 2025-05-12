@@ -1,17 +1,24 @@
 version: "3.1"
 
 intents:
+  - saludo
   - funcionalidad
-  - informacion_nct
+  - pregunta_nct
+  - adios
+
 responses:
+  utter_saludo:
+    - text: "¡Hola! ¿En qué puedo ayudarte?"
+  
   utter_funcionalidad:
-    - text: "Soy un asistente creado para ayudarte a conocer más sobre NCT y responder tus preguntas básicas."
-  utter_informacion_nct:
-    - text: |
-        NCT (Neo Culture Technology) es un grupo masculino de K-pop creado por SM Entertainment. 
-        Inicialmente empezó con un concepto único de miembros ilimitados repartidos en distintas unidades como NCT 127, NCT Dream, WayV y NCT U.
-        Algunas canciones destacadas incluyen “Kick It”, "Sticker", “Candy” y “Love Talk”.
-        El nombre del fandom es NCTzen.
+    - text: "Puedo responder preguntas sobre NCT o ayudarte con información básica."
+
+  utter_pregunta_nct:
+    - text: "NCT es un grupo de K-Pop de SM Entertainment con múltiples unidades y muchos miembros."
+
+  utter_adios:
+    - text: "¡Hasta luego! Fue un gusto ayudarte."
+
 session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true
