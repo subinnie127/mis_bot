@@ -1,0 +1,17 @@
+#### This file contains tests to evaluate that your bot behaves as expected.
+#### If you want to learn more, please see the docs: https://rasa.com/docs/rasa/testing-your-assistant
+
+- story: explicar funcionalidad del bot
+  steps:
+  - user: |
+      ¿Para qué sirves?
+    intent: funcionalidad
+  - action: utter_funcionalidad
+
+- story: hablar de NCT
+  steps:
+  - user: |
+      Cuéntame sobre NCT
+    intent: informacion_nct
+  - action: utter_informacion_nct
+

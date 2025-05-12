@@ -1,0 +1,13 @@
+version: "3.1"
+
+rules:
+
+- rule: Responder a la pregunta sobre funcionalidades
+  steps:
+    - intent: pregunta_funcionalidad
+    - action: utter_funcionalidad
+
+- rule: Responder con información sobre NCT
+  steps:
+  - intent: informacion_nct
+  - action: utter_informacion_nct

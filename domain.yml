@@ -1,0 +1,17 @@
+version: "3.1"
+
+intents:
+  - funcionalidad
+  - informacion_nct
+responses:
+  utter_funcionalidad:
+    - text: "Soy un asistente creado para ayudarte a conocer más sobre NCT y responder tus preguntas básicas."
+  utter_informacion_nct:
+    - text: |
+        NCT (Neo Culture Technology) es un grupo masculino de K-pop creado por SM Entertainment. 
+        Inicialmente empezó con un concepto único de miembros ilimitados repartidos en distintas unidades como NCT 127, NCT Dream, WayV y NCT U.
+        Algunas canciones destacadas incluyen “Kick It”, "Sticker", “Candy” y “Love Talk”.
+        El nombre del fandom es NCTzen.
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true

@@ -1,0 +1,16 @@
+version: "3.1"
+
+stories:
+- story: explicar funcionalidad del bot
+  steps:
+  - user: |
+      ¿Para qué sirves?
+    intent: funcionalidad
+  - action: utter_funcionalidad
+
+- story: hablar de NCT
+  steps:
+  - user: |
+      Cuéntame sobre NCT
+    intent: informacion_nct
+  - action: utter_informacion_nct
