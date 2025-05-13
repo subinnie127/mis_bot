@@ -15,6 +15,11 @@ rules:
     steps:
       - intent: pregunta_nct
       - action: utter_pregunta_nct
+      
+  - rule: Mostrar canciones de NCT
+    steps:
+    - intent: buscar_canciones_nct
+    - action: action_buscar_canciones_nct
 
   - rule: Responder despedida
     steps:

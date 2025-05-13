@@ -11,3 +11,8 @@ stories:
     - action: utter_pregunta_nct
     - intent: adios
     - action: utter_adios
+
+- story: mostrar canciones de NCT
+  steps:
+    - intent: buscar_canciones_nct
+    - action: action_buscar_canciones_nct

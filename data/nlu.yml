@@ -32,3 +32,11 @@ nlu:
     - nos vemos
     - Hasta luego
     - Hasta pronto
+
+- intent: buscar_canciones_nct
+  examples: |
+    - Muéstrame canciones de NCT
+    - Quiero escuchar música de NCT
+    - Recomiéndame canciones de NCT
+    - ¿Qué canciones tiene NCT?
+
